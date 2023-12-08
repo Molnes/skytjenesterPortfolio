@@ -16,9 +16,9 @@ It uses a 1cpu 2 GB RAM flavor and a 20 GB volume (which comes standard with the
 
 ### Development
 1. The first iteration was to create a simple endpoint that returns an HTML body with hello world and the current timestamp. This was done using Golang and the net/http package.
-2. The second iteration was to create a Dockerfile that builds the application and runs it. This was done using a multi-stage build.
+2. The second iteration was to create a Dockerfile that builds the docker image that runs the application.
 3. The third iteration was to create a Terraform file that creates a VM in OpenStack. This was done using the OpenTofu fork of Terraform.
-4. The fourth iteration was to create a Github Actions workflow that builds the application, builds the docker image, pushes it to Docker Hub, and then runs the Terraform file to create the VM.
+4. The fourth iteration was to create a Github Actions workflow that builds the application, builds the docker image, pushes it to GitHubs Container registry ([ghcr.io](https://ghcr.io)), and then runs the Terraform file to create the VM.
 
 ### Experiences
 I had some trouble with the GitHub Actions workflow. NTNU's OpenStack is not accessible from the outside, so while the workflow is capable of creating the infrastructure and deploying the application, it was being blocked by NTNU's firewall.
