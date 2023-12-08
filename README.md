@@ -1,5 +1,6 @@
 # skytjenesterPortfolio
 ## Report
+[GitHub Repo](https://github.com/Molnes/skytjenesterPortfolio)
 ### Choice of cloud services and tools
 I chose to use Github Actions as my CI/CD tool, OpenStack as my cloud provider, and Terraform as my IaC tool.
 I chose Github Actions because of its ease of use and integration with Github. I chose OpenStack because we get it free from NTNU and I chose a fork of Terraform called OpenTofu because of its popularity and integration with OpenStack.
