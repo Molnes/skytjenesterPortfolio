@@ -24,3 +24,6 @@ go.work
 clouds.yaml
 .terraform
 credentials.json
+main.o
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup

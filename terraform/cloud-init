@@ -1,0 +1,10 @@
+#cloud-config
+packages:
+  - docker.io
+
+runcmd:
+  - sudo systemctl start docker
+  - sudo systemctl enable docker
+  - sudo chmod +x .Main
+  - sudo docker pull ghcr.io/molnes/skytjenesterportfolio:main
+  - sudo docker run -d -p 80:8080 ghcr.io/molnes/skytjenesterportfolio:main

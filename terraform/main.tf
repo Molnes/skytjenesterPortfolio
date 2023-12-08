@@ -4,13 +4,17 @@ provider "openstack" {
 
 resource "openstack_compute_instance_v2" "hello-world" {
     name="hello-world"
-    image_id="7f2988c1-03a3-45c5-9967-a14d451d4dba"
+    image_id="ad3d29f6-a8ab-41cd-bc09-bc9d2e65ae2a"
     flavor_id="a0d604a8-7678-4460-a7d1-60eca9bc48bb"
     key_pair="DevOpsKey"
     network {
         name = "DevOps"
     }
     security_groups = ["default"]
+
+    user_data = file("${path.module}/cloud-init")
+
+    
 }
 
 resource "openstack_networking_floatingip_v2" "fip_hello-world" {
@@ -24,7 +28,6 @@ resource "openstack_compute_floatingip_associate_v2" "fip_hello-world" {
     depends_on = [openstack_networking_floatingip_v2.fip_hello-world]
 }
 
-data "template_file" "user_data" {
-  template = file("${path.module}/user_data.sh")
-  
+output "floating_ip_address" {
+  value = openstack_networking_floatingip_v2.fip_hello-world.address
 }
