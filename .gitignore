@@ -27,3 +27,5 @@ credentials.json
 main.o
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
+.terraform
+*.tfstate.backup
